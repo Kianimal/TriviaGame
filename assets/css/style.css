@@ -1,5 +1,5 @@
 .jumbotron{
-    background-image: linear-gradient(to right, #111, #111, #112, #113) !important;
+    background: none !important;
     border-radius: 0 !important;
     padding-bottom: 20px !important;
 }
@@ -35,15 +35,81 @@
 }
 
 #qBody{
+    position: relative;
+    background: none;
     margin: auto;
     min-height:400px;
     width:50%;
+    padding:15px;
     border-radius: 10px;
     box-shadow: 
         1px 1px 10px skyblue,
         -1px -1px 10px skyblue,
         inset 1px 1px 10px skyblue,
         inset -1px -1px 10px skyblue;
+}
+
+#qHeader{
+    font-weight: lighter;
+    color: lightyellow;
+    font-size: 24px;
+    text-shadow: 
+        0px 0px 10px gold;
+}
+
+.qHr{
+    background-color: gold;
+    box-shadow: 
+        1px 1px 5px gold,
+        -1px -1px 5px gold,
+        inset 1px 1px 5px gold,
+        inset -1px -1px 5px gold;
+}
+
+.qStart{
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+    font-size: 90px;
+}
+
+#btnContainer{
+    width:100%;
+    position: absolute;
+    bottom: 50px;
+    text-align: center;
+}
+
+.btn{
+    width:150px;
+    color: lightyellow;
+    text-align:center;
+    text-shadow: 
+        0px 0px 10px white;
+    font-size: 30px;
+    border: 3px solid gold;
+    border-radius: 10px;
+    background-color: gold;
+    box-shadow: 
+        1px 1px 5px gold,
+        -1px -1px 5px gold,
+        inset 1px 1px 5px gold,
+        inset -1px -1px 5px gold;
+}
+
+.btn:hover{
+    color: lightyellow;
+    text-shadow: 
+        0px 0px 30px black;
+    font-size: 30px;
+    border: 3px solid lightyellow;
+    border-radius: 10px;
+    background-color: gold;
+    box-shadow: 
+        1px 1px 5px lightyellow,
+        -1px -1px 5px lightyellow,
+        inset 1px 1px 5px lightyellow,
+        inset -1px -1px 5px lightyellow;
 }
 
 body{
