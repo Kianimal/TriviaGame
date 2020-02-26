@@ -1,0 +1,52 @@
+.jumbotron{
+    background-image: linear-gradient(to right, #111, #111, #112, #113) !important;
+    border-radius: 0 !important;
+    padding-bottom: 20px !important;
+}
+
+.display-2{
+    color: white !important;
+}
+
+.lead{
+    color: white !important;
+    font-weight: bold;
+}
+
+.rules{
+    width: 740px;
+    color: white !important;
+    font-weight: lighter;
+}
+
+#gold{
+    color:gold;
+}
+
+#bold{
+    font-weight: bold;
+}
+
+#logo{
+    position: absolute;
+    right: 32px;
+    top: 64px;
+    width:600px;
+}
+
+#qBody{
+    margin: auto;
+    min-height:400px;
+    width:50%;
+    border-radius: 10px;
+    box-shadow: 
+        1px 1px 10px skyblue,
+        -1px -1px 10px skyblue,
+        inset 1px 1px 10px skyblue,
+        inset -1px -1px 10px skyblue;
+}
+
+body{
+    height:100%;
+    background-image: linear-gradient(to right, #111, #111, #112, #113);
+}
