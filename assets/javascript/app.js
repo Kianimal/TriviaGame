@@ -17,25 +17,27 @@ var questions = [
 ];
 
 function populateQuestion(answer){
-    return ("<input class='btnAnswer' type='radio' name='a' value='" + answer + "'> <span class='txtAnswer'>" + answer + "</span><br>");
-};
+    return ("<input class='btnAnswer' type='radio' name='a' value='" + answer + 
+            "'> <span class='txtAnswer'>" + answer + "</span><br>");};
 
 var qHead = document.getElementById("qHeader");
 var qHr = document.getElementById("qHr");
-var qBody = document.getElementById("qBody")
+var qBody = document.getElementById("qBody");
+var btnContainer = document.getElementById("btnContainer");
+var btn = document.getElementById("btn");
 
 for (i=0;i<questionCount;i++){
     questionNum.push(i);
 }
 
-$(".btn").click(function(){
-    
+$("#btn").click(function(){
+
     qHead.textContent = "Question " + (questionNum[j]+1);
     $(qBody).empty(), $(qBody).append(qHead), 
     $(qBody).append(qHr);
 
     var question = document.createElement("div");
-    question.classList.add("questionText");
+    question.classList.add("txtQuestion");
     question.textContent = questions[j].textVal;
 
     $(qBody).append(question);
@@ -47,6 +49,10 @@ $(".btn").click(function(){
     $(qBody).append(c);
     var d = populateQuestion(questions[j].d);
     $(qBody).append(d);
+
+    $(qBody).append(btnContainer);
+    $(btn).text("SUBMIT");
+    $(btnContainer).append(btn);
 
     j++;
 });
