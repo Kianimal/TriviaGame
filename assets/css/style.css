@@ -73,6 +73,23 @@
     font-size: 80px;
 }
 
+.questionText{
+    color: white;
+    font-weight: lighter;
+    font-size: 32px;
+    padding-left: 15px;
+}
+
+.btnAnswer{
+    margin-left: 15px;
+    display: inline;
+}
+
+.txtAnswer{
+    color: white;
+    font-size: 24px;
+}
+
 #btnContainer{
     width:100%;
     position: absolute;
