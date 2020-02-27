@@ -1,4 +1,3 @@
-var questionCount = 20;
 var timeCount = 0;
 var questionNum = [];
 var rightCount = 0;
@@ -13,46 +12,59 @@ var questions = [
         b: "Episode V - The Empire Strikes Back",
         c: "Episode I - The Phantom Menace",
         d: "Kinect Star Wars for Xbox 360"
+    },
+    {
+        textVal: "What type of creature is Han Solo's friend, Chewbacca?",
+        right: "Wookiee",
+        a: "Human",
+        b: "Wookiee",
+        c: "Bothan",
+        d: "Corellian"
+    },{
+        textVal: "What ship was Luke flying when he destroyed the Death Star?",
+        right: "X-Wing",
+        a: "A-Wing",
+        b: "Y-Wing",
+        c: "The 'SS GOT 'EM'",
+        d: "X-Wing"
     }
 ];
 
 function populateQuestion(answer){
-    return ("<input class='btnAnswer' type='radio' name='a' value='" + answer + 
+    return ("<input class='btnAnswer' type='radio' name='answer' value='" + answer + 
             "'> <span class='txtAnswer'>" + answer + "</span><br>");};
 
-var qHead = document.getElementById("qHeader");
-var qHr = document.getElementById("qHr");
-var qBody = document.getElementById("qBody");
-var btnContainer = document.getElementById("btnContainer");
-var btn = document.getElementById("btn");
-
-for (i=0;i<questionCount;i++){
+for (i=0;i<questions.length;i++){
     questionNum.push(i);
 }
 
-$("#btn").click(function(){
+//START/SUBMIT Button
+
+var btn = document.getElementsByClassName("btn");
+var qHead = document.getElementById("qHeader");
+var qContent = document.getElementById("qContent");
+var question = document.createElement("div");
+question.classList.add("txtQuestion");
+
+$(".btn").click(function(){
 
     qHead.textContent = "Question " + (questionNum[j]+1);
-    $(qBody).empty(), $(qBody).append(qHead), 
-    $(qBody).append(qHr);
+    $(qContent).empty();
 
-    var question = document.createElement("div");
-    question.classList.add("txtQuestion");
     question.textContent = questions[j].textVal;
 
-    $(qBody).append(question);
+    $(qContent).append(question);
     var a = populateQuestion(questions[j].a);
-    $(qBody).append(a);
+    $(qContent).append(a);
     var b = populateQuestion(questions[j].b);
-    $(qBody).append(b);
+    $(qContent).append(b);
     var c = populateQuestion(questions[j].c);
-    $(qBody).append(c);
+    $(qContent).append(c);
     var d = populateQuestion(questions[j].d);
-    $(qBody).append(d);
+    $(qContent).append(d);
 
-    $(qBody).append(btnContainer);
     $(btn).text("SUBMIT");
-    $(btnContainer).append(btn);
 
     j++;
+    console.log(j);
 });
