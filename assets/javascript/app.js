@@ -38,7 +38,7 @@ var questions = [
         a: "Skywalker",
         b: "Amidala",
         c: "Solo",
-        d: "Dameron"
+        d: "Organa"
     },
     {
         textVal: "What is Han Solo's home planet?",
@@ -58,7 +58,7 @@ var questions = [
     },
     {
         textVal: "When does the Disney+ series 'The Mandalorian' take place?",
-        right: "Between Episode VI and Episode VII",
+        right: "Between the original trilogy and the sequel trilogy",
         a: "Before any of the films take place",
         b: "After the sequel trilogy",
         c: "Between the prequels and the original trilogy",
@@ -162,10 +162,17 @@ var questions = [
     }
 ];
 
-//Variables for counters
-var timeCount = 0;
-var rightCount = 0;
-var j = 0;
+var rightAnswerPrompt = [
+    "Great shot, kid!",
+    "Never tell me the odds!",
+    "Power! Unlimited POWER!"
+];
+
+var wrongAnswerPrompt = [
+    "I FIND YOUR LACK OF FAITH DISTURBING",
+    "THAT'S NOT TRUE! THAT'S IMPOSSIBLE!",
+    "SO THIS IS HOW LIBERTY DIES..."
+];
 
 //Populates question div one answer at a time
 function populateQuestion(answer,id){
@@ -176,32 +183,101 @@ function populateQuestion(answer,id){
 function getAnswer(){
     for (i=1;i<5;i++){
         userAnswer = document.getElementById(i);
+        console.log(userAnswer);
         if(userAnswer.checked){
-            if(userAnswer.value === questions[j-1].right){
+            if(userAnswer.value === questions[j].right){
                 rightCount+=1;
+                j++;
+                rightAnswer();
+                break;
+            }
+
+            else{
+                wrongCount+=1;
+                j++;
+                wrongAnswer();
+                break;
             };
         };
     };
 };
 
-//START/SUBMIT Button variables
-var btn = document.getElementsByClassName("btn");
-var qHead = document.getElementById("qHeader");
-var qContent = document.getElementById("qContent");
-var question = document.createElement("div");
-var userAnswer;
-question.classList.add("txtQuestion");
+function rightAnswer(){
+    
+    clearTimeout(splashTimer);
+    $(qBody).attr("id","rBody");
+    $(qHr).attr("id","rHr");
+    $(qContent).empty();
+    $(qContent).html("<p class='qStart'>" + selectRandom(rightAnswerPrompt) + "</p><br>" +
+                        "<p class='txtW_Timeout'>YOU ANSWERED CORRECTLY!</p>");
 
-//START/SUBMIT Button functionality
-$(".btn").click(function(){
+    $(tBlock).css("visibility", "hidden");
+    $(btn).css("visibility", "hidden");
 
-    //Avoids collecting answer when starting the game
-    if(j>0){
-        userAnswer = getAnswer();
+    console.log("Right answer!");
+    splashTimer = setTimeout(function(){loadQuestions(); }, 3000);
+};
+
+function wrongAnswer(){
+    
+    clearTimeout(splashTimer);
+    $(qBody).attr("id","w_tBody");
+    $(qHr).attr("id","w_tHr");
+    $(qContent).empty();
+    $(qContent).html("<p class='qStart'>" + selectRandom(wrongAnswerPrompt) + "</p><br>" +
+                        "<p class='txtW_Timeout'>YOU ANSWERED INCORRECTLY!</p>");
+
+    $(tBlock).css("visibility", "hidden");
+    $(btn).css("visibility", "hidden");
+
+    console.log("Wrong answer!");
+    splashTimer = setTimeout(function(){loadQuestions(); }, 3000);
+};
+
+function timedOut(){
+    
+    clearTimeout(splashTimer);
+    $(qBody).attr("id","w_tBody");
+    $(qHr).attr("id","w_tHr");
+    $(tBlock).css("visibility", "hidden");
+    $(btn).css("visibility", "hidden");
+    $(qContent).empty();
+    $(qContent).html("<p class='qStart'>DO, OR DO NOT.</p><br>"+
+                    "<p class='txtW_Timeout'>YOU DID NOT ANSWER IN TIME<p>");
+    wrongCount+=1;
+    timed = true;
+    if(timed){
+        clearTimeout(qTimer);
+        clearInterval(countTimer);
     };
 
+    splashTimer = setTimeout(function(){loadQuestions(); }, 3000);
+
+    console.log("Wrong answer!");
+
+    j++;
+}
+
+function setTime(){
+    timeCount-=1;
+    tUpdate.textContent = timeCount + " seconds";
+}
+
+function loadQuestions(){
+
+    clearTimeout(qTimer);
+    clearInterval(countTimer);
+    $(qBody).attr("id","qBody");
+    $(qHr).attr("id","qHr");
+    timed = false;
+    timeCount = 20;
+    tUpdate.textContent = timeCount + " seconds";
+
+    $(tBlock).css("visibility", "visible");
     qHead.textContent = "Question " + (j+1);
     $(qContent).empty();
+
+    question.classList.add("txtQuestion");
 
     question.textContent = questions[j].textVal;
 
@@ -215,7 +291,60 @@ $(".btn").click(function(){
     var d = populateQuestion(questions[j].d,"4");
     $(qContent).append(d);
 
+    $(btn).css("visibility", "visible");
     $(btn).text("SUBMIT");
 
-    j++;
+    qTimer = setTimeout(function(){timedOut(); }, 20000);
+    countTimer = setInterval(function(){ setTime(); }, 1000);
+
+    console.log("Question number/J: " + (j+1));
+    console.log("Right answers: " + rightCount);
+    console.log("Wrong answers: " + wrongCount);
+
+};
+
+function selectRandom(arr){
+    var selected = Math.floor((Math.random()*arr.length));
+    return arr[selected];
+};
+
+//Variables for counters
+var timeCount = 20;
+var rightCount = 0;
+var wrongCount = 0;
+var j = -1;
+var timed = false;
+
+//START/SUBMIT Button variables
+var btn = document.getElementsByClassName("btn");
+var qBody = document.getElementById("qBody");
+var qHead = document.getElementById("qTitle");
+var qHr = document.getElementById("qHr");
+var qContent = document.getElementById("qContent");
+var question = document.createElement("div");
+var tBlock = document.getElementById("qTimer");
+var tUpdate = document.getElementById("time");
+tUpdate.textContent = timeCount + " seconds";
+var userAnswer;
+
+var qTimer;
+var countTimer;
+var splashTimer;
+
+//START/SUBMIT Button functionality
+
+$(".btn").click(function(){
+
+    clearTimeout(qTimer);
+    clearInterval(countTimer);
+
+    //Avoids collecting answer when starting the game
+    if(j>-1){
+        getAnswer();
+    };
+
+    if(j==-1){
+        j++;
+        loadQuestions();
+    };
 });
