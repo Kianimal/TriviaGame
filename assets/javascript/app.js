@@ -1,8 +1,4 @@
-var timeCount = 0;
-var questionNum = [];
-var rightCount = 0;
-var j = 0;
-
+//Question array
 var questions = [
     {
         textVal: "Which Star Wars movie was the first to be released?",
@@ -166,41 +162,59 @@ var questions = [
     }
 ];
 
-function populateQuestion(answer){
-    return ("<input class='btnAnswer' type='radio' name='answer' value='" + answer + 
-            "'> <span class='txtAnswer'>" + answer + "</span><br>");};
+//Variables for counters
+var timeCount = 0;
+var rightCount = 0;
+var j = 0;
 
-for (i=0;i<questions.length;i++){
-    questionNum.push(i);
-}
+//Populates question div one answer at a time
+function populateQuestion(answer,id){
+    return ("<input id='" + id + "' class='btnAnswer' type='radio' name='answer' value='" + answer + 
+            "'> <span class='txtAnswer'>" + answer + "</span><br>");
+};
 
-//START/SUBMIT Button
+function getAnswer(){
+    for (i=1;i<5;i++){
+        userAnswer = document.getElementById(i);
+        console.log(userAnswer);
+        if(userAnswer.checked){
+            rightCount+=1;
+            console.log(rightCount);
+        }
+    }
+};
 
+//START/SUBMIT Button variables
 var btn = document.getElementsByClassName("btn");
 var qHead = document.getElementById("qHeader");
 var qContent = document.getElementById("qContent");
 var question = document.createElement("div");
+var userAnswer;
 question.classList.add("txtQuestion");
 
+//START/SUBMIT Button functionality
 $(".btn").click(function(){
 
-    qHead.textContent = "Question " + (questionNum[j]+1);
+    if(j>0){
+        userAnswer = getAnswer();
+    };
+
+    qHead.textContent = "Question " + (j+1);
     $(qContent).empty();
 
     question.textContent = questions[j].textVal;
 
     $(qContent).append(question);
-    var a = populateQuestion(questions[j].a);
+    var a = populateQuestion(questions[j].a,"1");
     $(qContent).append(a);
-    var b = populateQuestion(questions[j].b);
+    var b = populateQuestion(questions[j].b,"2");
     $(qContent).append(b);
-    var c = populateQuestion(questions[j].c);
+    var c = populateQuestion(questions[j].c,"3");
     $(qContent).append(c);
-    var d = populateQuestion(questions[j].d);
+    var d = populateQuestion(questions[j].d,"4");
     $(qContent).append(d);
 
     $(btn).text("SUBMIT");
 
     j++;
-    console.log(j);
 });
