@@ -121,7 +121,7 @@ var questions = [
         d: "Endor"
     },
     {
-        textVal: "Who is arguably the person most known for the score of Star Wars films?",
+        textVal: "Who has scored the most Star Wars films?",
         right: "John Williams",
         a: "John Williams",
         b: "Beethoven",
@@ -176,12 +176,12 @@ function populateQuestion(answer,id){
 function getAnswer(){
     for (i=1;i<5;i++){
         userAnswer = document.getElementById(i);
-        console.log(userAnswer);
         if(userAnswer.checked){
-            rightCount+=1;
-            console.log(rightCount);
-        }
-    }
+            if(userAnswer.value === questions[j-1].right){
+                rightCount+=1;
+            };
+        };
+    };
 };
 
 //START/SUBMIT Button variables
@@ -195,6 +195,7 @@ question.classList.add("txtQuestion");
 //START/SUBMIT Button functionality
 $(".btn").click(function(){
 
+    //Avoids collecting answer when starting the game
     if(j>0){
         userAnswer = getAnswer();
     };
