@@ -15,16 +15,20 @@
 
 .rules{
     width: 740px;
-    color: white !important;
+    color: goldenrod !important;
     font-weight: lighter;
 }
 
 #gold{
-    color:gold;
+    color:goldenrod;
 }
 
 #bold{
     font-weight: bold;
+}
+
+#italic{
+    font-style: italic;
 }
 
 #logo{
@@ -32,6 +36,7 @@
     right: 32px;
     top: 64px;
     width:600px;
+    z-index: -2;
 }
 
 /* Default question border */
@@ -217,7 +222,7 @@ body{
 }
 
 #stars{
-    opacity:0.1;
+    opacity:0.25;
     position: fixed;
     bottom:0;
     right:0;

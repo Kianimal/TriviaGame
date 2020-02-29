@@ -161,26 +161,26 @@ var questions = [
         d: "AT-STs"
     }
 ];
-
+//Right answer splash page text array
 var rightAnswerPrompt = [
     "Great shot, kid!",
     "Never tell me the odds!",
     "Power! Unlimited POWER!"
 ];
-
+//Wrong answer splash page text array
 var wrongAnswerPrompt = [
     "I FIND YOUR LACK OF FAITH DISTURBING",
     "THAT'S NOT TRUE! THAT'S IMPOSSIBLE!",
     "SO THIS IS HOW LIBERTY DIES...",
     "I'VE GOT A BAD FEELING ABOUT THIS"
 ];
-
 //Populates question div one answer at a time
 function populateQuestion(answer,id){
     return ("<input id='" + id + "' class='btnAnswer' type='radio' name='answer' value='" + answer + 
             "'> <span class='txtAnswer'>" + answer + "</span><br>");
 };
 
+//Gets the answer and checks it against the right value
 function getAnswer(){
     for (i=1;i<5;i++){
         userAnswer = document.getElementById(i);
@@ -202,7 +202,7 @@ function getAnswer(){
         };
     };
 };
-
+//Run when the right answer is chosen
 function rightAnswer(){
     
     clearTimeout(splashTimer);
@@ -218,7 +218,7 @@ function rightAnswer(){
     console.log("Right answer!");
     splashTimer = setTimeout(function(){loadQuestions(); }, 3000);
 };
-
+//Run when the wrong answer is chosen
 function wrongAnswer(){
     
     clearTimeout(splashTimer);
@@ -234,7 +234,7 @@ function wrongAnswer(){
     console.log("Wrong answer!");
     splashTimer = setTimeout(function(){loadQuestions(); }, 5000);
 };
-
+//Run when the user doesn't answer before timer ends
 function timedOut(){
     
     j++;
@@ -258,12 +258,7 @@ function timedOut(){
 
     console.log("Wrong answer!");
 }
-
-function setTime(){
-    timeCount-=1;
-    tUpdate.textContent = timeCount + " seconds";
-}
-
+//Populates question container with questions from the array, in order.
 function loadQuestions(){
 
     if (j<20){
@@ -298,6 +293,11 @@ function loadQuestions(){
 
         qTimer = setTimeout(function(){timedOut(); }, 20000);
         countTimer = setInterval(function(){ setTime(); }, 1000);
+
+        function setTime(){
+            timeCount-=1;
+            tUpdate.textContent = timeCount + " seconds";
+        }
     } 
     else {
 
@@ -320,13 +320,9 @@ function loadQuestions(){
         restart = true;
     };
 
-    console.log("Question number: " + (j+1));
-    console.log("J Value: " + j);
-    console.log("Right answers: " + rightCount);
-    console.log("Wrong answers: " + wrongCount);
-
 };
-
+//Randomly selects splash page text from right/wrong prompt arrays
+//Returns the value at a random index in the length of the array
 function selectRandom(arr){
     var selected = Math.floor((Math.random()*arr.length));
     return arr[selected];
@@ -336,21 +332,33 @@ function selectRandom(arr){
 var timeCount = 20;
 var rightCount = 0;
 var wrongCount = 0;
+//J variable counts through questions and tracks game progress
 var j = -1;
+//Restart triggered to restart the game when it ends
 var restart = false;
 
 //START/SUBMIT Button variables
+//Button
 var btn = document.getElementsByClassName("btn");
+//Container for dynamic content. Used to change border color.
 var qBody = document.getElementById("qBody");
-var qHead = document.getElementById("qTitle");
+//Horizontal row content, used to change border color
 var qHr = document.getElementById("qHr");
+//Dynamic text for questions/container label
+var qHead = document.getElementById("qTitle");
+//Dynamic text container
 var qContent = document.getElementById("qContent");
+//Creates a div that is added when questions load.
+//Used to update dynamic question text.
 var question = document.createElement("div");
+//Dynamic timer text container
 var tBlock = document.getElementById("qTimer");
+//Dynamic text for timer
 var tUpdate = document.getElementById("time");
 tUpdate.textContent = timeCount + " seconds";
+//Global variable to store user answer
 var userAnswer;
-
+//Global timer variables to be used by multiple functions
 var qTimer;
 var countTimer;
 var splashTimer;
@@ -359,22 +367,23 @@ var splashTimer;
 
 $(".btn").click(function(){
 
-    //Avoids collecting answer when starting the game
+    //Avoids collecting answer when starting or restarting game
     if(j>-1 && restart != true){
         getAnswer();
     };
 
+    //Load first question when starting first game
     if(j==-1){
         j++;
         loadQuestions();
     };
 
+    //Restart functionality resets all variables and restarts game
     if(restart == true){
         rightCount = 0;
         wrongCount = 0;
         restart = false;
         j = 0;
         loadQuestions();
-        console.log("J value: " + j);
     }
 });
