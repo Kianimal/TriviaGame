@@ -15,7 +15,7 @@
 
 .rules{
     width: 740px;
-    color: goldenrod !important;
+    color: white !important;
     font-weight: lighter;
 }
 
@@ -23,12 +23,13 @@
     color:goldenrod;
 }
 
-#bold{
-    font-weight: bold;
+#redItalic{
+    color: red;
+    font-style: italic;
 }
 
-#italic{
-    font-style: italic;
+.bold{
+    font-weight: bold;
 }
 
 #logo{
