@@ -205,6 +205,8 @@ function getAnswer(){
 //Run when the right answer is chosen
 function rightAnswer(){
     
+    clearTimeout(qTimer);
+    clearInterval(countTimer);
     clearTimeout(splashTimer);
     $(qBody).attr("id","rBody");
     $(qHr).attr("id","rHr");
@@ -221,6 +223,8 @@ function rightAnswer(){
 //Run when the wrong answer is chosen
 function wrongAnswer(){
     
+    clearTimeout(qTimer);
+    clearInterval(countTimer);
     clearTimeout(splashTimer);
     $(qBody).attr("id","w_tBody");
     $(qHr).attr("id","w_tHr");
