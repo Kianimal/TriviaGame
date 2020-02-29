@@ -209,14 +209,14 @@ function rightAnswer(){
     $(qBody).attr("id","rBody");
     $(qHr).attr("id","rHr");
     $(qContent).empty();
-    $(qContent).html("<p class='txtW_Timeout txtCenter'>" + selectRandom(rightAnswerPrompt) + "</p>" +
+    $(qContent).html("<p class='txtQuestion txtCenter'>" + selectRandom(rightAnswerPrompt) + "</p>" +
                         "<p class='txtW_Timeout txtCenter'>YOU ANSWERED CORRECTLY!</p>");
 
     $(tBlock).css("visibility", "hidden");
     $(btn).css("visibility", "hidden");
 
     console.log("Right answer!");
-    splashTimer = setTimeout(function(){loadQuestions(); }, 4000);
+    splashTimer = setTimeout(function(){loadQuestions(); }, 3000);
 };
 
 function wrongAnswer(){
@@ -225,14 +225,14 @@ function wrongAnswer(){
     $(qBody).attr("id","w_tBody");
     $(qHr).attr("id","w_tHr");
     $(qContent).empty();
-    $(qContent).prepend("<p class='txtW_Timeout txtCenter'>" + selectRandom(wrongAnswerPrompt) + "</p>" +
+    $(qContent).prepend("<p class='txtQuestion txtCenter'>" + selectRandom(wrongAnswerPrompt) + "</p>" +
                         "<p class='txtW_Timeout txtCenter'>Correct answer: " + questions[j-1].right +"</p>");
 
     $(tBlock).css("visibility", "hidden");
     $(btn).css("visibility", "hidden");
 
     console.log("Wrong answer!");
-    splashTimer = setTimeout(function(){loadQuestions(); }, 4000);
+    splashTimer = setTimeout(function(){loadQuestions(); }, 5000);
 };
 
 function timedOut(){
@@ -254,7 +254,7 @@ function timedOut(){
     clearTimeout(qTimer);
     clearInterval(countTimer);
 
-    splashTimer = setTimeout(function(){loadQuestions(); }, 4000);
+    splashTimer = setTimeout(function(){loadQuestions(); }, 5000);
 
     console.log("Wrong answer!");
 }
@@ -309,7 +309,7 @@ function loadQuestions(){
         $(qHr).attr("id","qHr");
         qHead.textContent = "Star Wars Trivia";
         $(qContent).empty();
-        $(qContent).html("<p class='txtAnswer txtCenter'>GAME OVER.</p>"+
+        $(qContent).html("<p class='txtQuestion txtCenter'>MAY THE FORCE BE WITH YOU. ALWAYS.</p>"+
                             "<p class='txtAnswer txtCenter'>Right: " + rightCount + "</p>" +
                             "<p class='txtAnswer txtCenter'>Wrong: " + wrongCount + "</p>");
 
@@ -358,9 +358,6 @@ var splashTimer;
 //START/SUBMIT Button functionality
 
 $(".btn").click(function(){
-
-    clearTimeout(qTimer);
-    clearInterval(countTimer);
 
     //Avoids collecting answer when starting the game
     if(j>-1 && restart != true){
