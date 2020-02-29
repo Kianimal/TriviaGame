@@ -137,6 +137,10 @@
     font-size: 80px;
 }
 
+.txtCenter{
+    text-align: center;
+}
+
 .txtQuestion{
     color: white;
     text-shadow: 
@@ -210,4 +214,13 @@
 body{
     height:100%;
     background-image: linear-gradient(to right, #111, #111, #112, #113);
+    z-index: -2;
+}
+
+#stars{
+    opacity:0.1;
+    position: fixed;
+    bottom:0;
+    right:0;
+    z-index: -1;
 }

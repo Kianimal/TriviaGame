@@ -171,7 +171,8 @@ var rightAnswerPrompt = [
 var wrongAnswerPrompt = [
     "I FIND YOUR LACK OF FAITH DISTURBING",
     "THAT'S NOT TRUE! THAT'S IMPOSSIBLE!",
-    "SO THIS IS HOW LIBERTY DIES..."
+    "SO THIS IS HOW LIBERTY DIES...",
+    "I'VE GOT A BAD FEELING ABOUT THIS"
 ];
 
 //Populates question div one answer at a time
@@ -208,14 +209,14 @@ function rightAnswer(){
     $(qBody).attr("id","rBody");
     $(qHr).attr("id","rHr");
     $(qContent).empty();
-    $(qContent).html("<p class='qStart'>" + selectRandom(rightAnswerPrompt) + "</p><br>" +
+    $(qContent).html("<p class='qStart txtCenter'>" + selectRandom(rightAnswerPrompt) + "</p>" +
                         "<p class='txtW_Timeout'>YOU ANSWERED CORRECTLY!</p>");
 
     $(tBlock).css("visibility", "hidden");
     $(btn).css("visibility", "hidden");
 
     console.log("Right answer!");
-    splashTimer = setTimeout(function(){loadQuestions(); }, 3000);
+    splashTimer = setTimeout(function(){loadQuestions(); }, 4000);
 };
 
 function wrongAnswer(){
@@ -224,14 +225,14 @@ function wrongAnswer(){
     $(qBody).attr("id","w_tBody");
     $(qHr).attr("id","w_tHr");
     $(qContent).empty();
-    $(qContent).html("<p class='qStart'>" + selectRandom(wrongAnswerPrompt) + "</p><br>" +
+    $(qContent).html("<p class='qStart txtCenter'>" + selectRandom(wrongAnswerPrompt) + "</p>" +
                         "<p class='txtW_Timeout'>YOU ANSWERED INCORRECTLY!</p>");
 
     $(tBlock).css("visibility", "hidden");
     $(btn).css("visibility", "hidden");
 
     console.log("Wrong answer!");
-    splashTimer = setTimeout(function(){loadQuestions(); }, 3000);
+    splashTimer = setTimeout(function(){loadQuestions(); }, 4000);
 };
 
 function timedOut(){
@@ -242,7 +243,8 @@ function timedOut(){
     $(tBlock).css("visibility", "hidden");
     $(btn).css("visibility", "hidden");
     $(qContent).empty();
-    $(qContent).html("<p class='qStart'>DO, OR DO NOT.</p><br>"+
+    $(qContent).html("<p class='qStart txtCenter'>DO, OR DO NOT.</p>"+
+                        "<p class='qStart txtCenter'>THERE IS NO TRY.</p>"+
                     "<p class='txtW_Timeout'>YOU DID NOT ANSWER IN TIME<p>");
     wrongCount+=1;
     timed = true;
@@ -251,7 +253,7 @@ function timedOut(){
         clearInterval(countTimer);
     };
 
-    splashTimer = setTimeout(function(){loadQuestions(); }, 3000);
+    splashTimer = setTimeout(function(){loadQuestions(); }, 4000);
 
     console.log("Wrong answer!");
 
