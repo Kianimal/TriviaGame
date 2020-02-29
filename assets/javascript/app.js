@@ -1,6 +1,7 @@
 //Question array
 var questions = [
     {
+        answered: false,
         textVal: "Which Star Wars movie was the first to be released?",
         right: "Episode IV - A New Hope",
         a: "Episode IV - A New Hope",
@@ -9,6 +10,7 @@ var questions = [
         d: "Kinect Star Wars for Xbox 360"
     },
     {
+        answered: false,
         textVal: "What type of creature is Han Solo's friend, Chewbacca?",
         right: "Wookiee",
         a: "Human",
@@ -17,6 +19,7 @@ var questions = [
         d: "Corellian"
     },
     {
+        answered: false,
         textVal: "What ship was Luke flying when he destroyed the Death Star?",
         right: "X-Wing",
         a: "A-Wing",
@@ -25,6 +28,7 @@ var questions = [
         d: "X-Wing"
     },
     {
+        answered: false,
         textVal: "Who is Luke Skywalker's father?",
         right: "Anakin Skywalker",
         a: "Boba Fett",
@@ -33,6 +37,7 @@ var questions = [
         d: "Steve Carell"
     },
     {
+        answered: false,
         textVal: "What is Princess Leia's last name?",
         right: "Organa",
         a: "Skywalker",
@@ -41,6 +46,7 @@ var questions = [
         d: "Organa"
     },
     {
+        answered: false,
         textVal: "What is Han Solo's home planet?",
         right: "Corellia",
         a: "Corellia",
@@ -49,6 +55,7 @@ var questions = [
         d: "Coruscant"
     },
     {
+        answered: false,
         textVal: "What happened to Luke Skywalker on Cloud City?",
         right: "Lost his right hand",
         a: "Lost his left hand",
@@ -57,6 +64,7 @@ var questions = [
         d: "He got a new sweater, but it didn't fit so he returned it"
     },
     {
+        answered: false,
         textVal: "When does the Disney+ series 'The Mandalorian' take place?",
         right: "Between the original trilogy and the sequel trilogy",
         a: "Before any of the films take place",
@@ -65,6 +73,7 @@ var questions = [
         d: "Between the original trilogy and the sequel trilogy"
     },
     {
+        answered: false,
         textVal: "Which character appeared in every entry of the main series?",
         right: "R2D2",
         a: "Leia Organa",
@@ -73,6 +82,7 @@ var questions = [
         d: "R2D2"
     },
     {
+        answered: false,
         textVal: "Who did Han Solo kill in 'Solo: A Star Wars Story'?",
         right: "Tobias Beckett",
         a: "Lando Calrissian",
@@ -81,6 +91,7 @@ var questions = [
         d: "Darth Maul"
     },
     {
+        answered: false,
         textVal: "Who was Tobias Beckett married to?",
         right: "Val",
         a: "Val",
@@ -89,6 +100,7 @@ var questions = [
         d: "Enfys Nest"
     },
     {
+        answered: false,
         textVal: "On what planet is Darth Vader's fortress located?",
         right: "Mustafar",
         a: "Dantooine",
@@ -97,6 +109,7 @@ var questions = [
         d: "Alderaan"
     },
     {
+        answered: false,
         textVal: "What material is Mandalorian armor made of?",
         right: "Beskar",
         a: "Beskar",
@@ -105,6 +118,7 @@ var questions = [
         d: "Titanium"
     },
     {
+        answered: false,
         textVal: "Name the creature that attacked Luke on Hoth.",
         right: "Wampa",
         a: "Ewok",
@@ -113,6 +127,7 @@ var questions = [
         d: "Wampa"
     },
     {
+        answered: false,
         textVal: "On what planet were the rebels nearly defeated in Episode VIII?",
         right: "Crait",
         a: "Hoth",
@@ -121,6 +136,7 @@ var questions = [
         d: "Endor"
     },
     {
+        answered: false,
         textVal: "Who has scored the most Star Wars films?",
         right: "John Williams",
         a: "John Williams",
@@ -129,6 +145,7 @@ var questions = [
         d: "George Lucas"
     },
     {
+        answered: false,
         textVal: "What last name did Rey take?",
         right: "Skywalker",
         a: "Frik",
@@ -137,6 +154,7 @@ var questions = [
         d: "Skywalker"
     },
     {
+        answered: false,
         textVal: "In what city is Anakin Skywalker first introduced?",
         right: "Mos Espa",
         a: "Coruscant",
@@ -145,6 +163,7 @@ var questions = [
         d: "Mos Def"
     },
     {
+        answered: false,
         textVal: "What is the name of the casino planet featured in Episode VIII?",
         right: "Canto Bight",
         a: "Crait",
@@ -153,7 +172,8 @@ var questions = [
         d: "Exegol"
     },
     {
-        textVal: "What creatures are native to Yavin VI?",
+        answered: false,
+        textVal: "What creatures are native to Yavin IV?",
         right: "Ewoks",
         a: "Wookiees",
         b: "Humans",
@@ -179,14 +199,13 @@ function populateQuestion(answer,id){
     return ("<input id='" + id + "' class='btnAnswer' type='radio' name='answer' value='" + answer + 
             "'> <span class='txtAnswer'>" + answer + "</span><br>");
 };
-
 //Gets the answer and checks it against the right value
 function getAnswer(){
     for (i=1;i<5;i++){
         userAnswer = document.getElementById(i);
         console.log(userAnswer);
         if(userAnswer.checked){
-            if(userAnswer.value === questions[j].right){
+            if(userAnswer.value === qDisplay.right){
                 rightCount+=1;
                 j++;
                 rightAnswer();
@@ -230,7 +249,7 @@ function wrongAnswer(){
     $(qHr).attr("id","w_tHr");
     $(qContent).empty();
     $(qContent).prepend("<p class='txtQuestion txtCenter'>" + selectRandom(wrongAnswerPrompt) + "</p>" +
-                        "<p class='txtW_Timeout txtCenter'>Correct answer: " + questions[j-1].right +"</p>");
+                        "<p class='txtW_Timeout txtCenter'>Correct answer: " + qDisplay.right +"</p>");
 
     $(tBlock).css("visibility", "hidden");
     $(btn).css("visibility", "hidden");
@@ -252,7 +271,7 @@ function timedOut(){
     $(qContent).html("<p class='txtW_Timeout txtCenter'>DO, OR DO NOT.</p>"+
                         "<p class='txtW_Timeout txtCenter'>THERE IS NO TRY.</p>"+
                     "<p class='txtW_Timeout txtCenter'>YOU DID NOT ANSWER IN TIME<p>" +
-                    "<p class='txtW_Timeout txtCenter'>Correct answer: " + questions[j-1].right +"</p>");
+                    "<p class='txtW_Timeout txtCenter'>Correct answer: " + qDisplay.right +"</p>");
     wrongCount+=1;
 
     clearTimeout(qTimer);
@@ -280,16 +299,18 @@ function loadQuestions(){
 
         question.classList.add("txtQuestion");
 
-        question.textContent = questions[j].textVal;
+        qDisplay = selectRandomQuestion(questions);
+        qDisplay.answered = true;
+        question.textContent = qDisplay.textVal;
 
         $(qContent).append(question);
-        var a = populateQuestion(questions[j].a,"1");
+        var a = populateQuestion(qDisplay.a,"1");
         $(qContent).append(a);
-        var b = populateQuestion(questions[j].b,"2");
+        var b = populateQuestion(qDisplay.b,"2");
         $(qContent).append(b);
-        var c = populateQuestion(questions[j].c,"3");
+        var c = populateQuestion(qDisplay.c,"3");
         $(qContent).append(c);
-        var d = populateQuestion(questions[j].d,"4");
+        var d = populateQuestion(qDisplay.d,"4");
         $(qContent).append(d);
 
         $(btn).css("visibility", "visible");
@@ -331,6 +352,26 @@ function selectRandom(arr){
     var selected = Math.floor((Math.random()*arr.length));
     return arr[selected];
 };
+function selectRandomQuestion(qArr){
+    var qSelected = selectRandom(qArr);
+    if(qSelected.answered === false){
+        return qSelected;
+    } 
+    else {
+        return selectRandomQuestion(qArr);
+    }
+};
+//Restart function resets all variables to necessary values to restart the game
+function restartGame(){
+    for(i=0;i<questions.length;i++){
+        questions[i].answered = false;
+    };
+    rightCount = 0;
+    wrongCount = 0;
+    restart = false;
+    j = 0;
+    loadQuestions();
+};
 
 //Variables for counters
 var timeCount = 20;
@@ -355,6 +396,8 @@ var qContent = document.getElementById("qContent");
 //Creates a div that is added when questions load.
 //Used to update dynamic question text.
 var question = document.createElement("div");
+//????
+var qDisplay;
 //Dynamic timer text container
 var tBlock = document.getElementById("qTimer");
 //Dynamic text for timer
@@ -384,10 +427,6 @@ $(".btn").click(function(){
 
     //Restart functionality resets all variables and restarts game
     if(restart == true){
-        rightCount = 0;
-        wrongCount = 0;
-        restart = false;
-        j = 0;
-        loadQuestions();
-    }
+        restartGame();
+    };
 });
