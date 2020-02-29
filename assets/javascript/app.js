@@ -209,8 +209,8 @@ function rightAnswer(){
     $(qBody).attr("id","rBody");
     $(qHr).attr("id","rHr");
     $(qContent).empty();
-    $(qContent).html("<p class='qStart txtCenter'>" + selectRandom(rightAnswerPrompt) + "</p>" +
-                        "<p class='txtW_Timeout'>YOU ANSWERED CORRECTLY!</p>");
+    $(qContent).html("<p class='txtW_Timeout txtCenter'>" + selectRandom(rightAnswerPrompt) + "</p>" +
+                        "<p class='txtW_Timeout txtCenter'>YOU ANSWERED CORRECTLY!</p>");
 
     $(tBlock).css("visibility", "hidden");
     $(btn).css("visibility", "hidden");
@@ -225,8 +225,8 @@ function wrongAnswer(){
     $(qBody).attr("id","w_tBody");
     $(qHr).attr("id","w_tHr");
     $(qContent).empty();
-    $(qContent).html("<p class='qStart txtCenter'>" + selectRandom(wrongAnswerPrompt) + "</p>" +
-                        "<p class='txtW_Timeout'>YOU ANSWERED INCORRECTLY!</p>");
+    $(qContent).prepend("<p class='txtW_Timeout txtCenter'>" + selectRandom(wrongAnswerPrompt) + "</p>" +
+                        "<p class='txtW_Timeout txtCenter'>Correct answer: " + questions[j-1].right +"</p>");
 
     $(tBlock).css("visibility", "hidden");
     $(btn).css("visibility", "hidden");
@@ -237,27 +237,26 @@ function wrongAnswer(){
 
 function timedOut(){
     
+    j++;
+
     clearTimeout(splashTimer);
     $(qBody).attr("id","w_tBody");
     $(qHr).attr("id","w_tHr");
     $(tBlock).css("visibility", "hidden");
     $(btn).css("visibility", "hidden");
     $(qContent).empty();
-    $(qContent).html("<p class='qStart txtCenter'>DO, OR DO NOT.</p>"+
-                        "<p class='qStart txtCenter'>THERE IS NO TRY.</p>"+
-                    "<p class='txtW_Timeout'>YOU DID NOT ANSWER IN TIME<p>");
+    $(qContent).html("<p class='txtW_Timeout txtCenter'>DO, OR DO NOT.</p>"+
+                        "<p class='txtW_Timeout txtCenter'>THERE IS NO TRY.</p>"+
+                    "<p class='txtW_Timeout txtCenter'>YOU DID NOT ANSWER IN TIME<p>" +
+                    "<p class='txtW_Timeout txtCenter'>Correct answer: " + questions[j-1].right +"</p>");
     wrongCount+=1;
-    timed = true;
-    if(timed){
-        clearTimeout(qTimer);
-        clearInterval(countTimer);
-    };
+
+    clearTimeout(qTimer);
+    clearInterval(countTimer);
 
     splashTimer = setTimeout(function(){loadQuestions(); }, 4000);
 
     console.log("Wrong answer!");
-
-    j++;
 }
 
 function setTime(){
@@ -267,39 +266,62 @@ function setTime(){
 
 function loadQuestions(){
 
-    clearTimeout(qTimer);
-    clearInterval(countTimer);
-    $(qBody).attr("id","qBody");
-    $(qHr).attr("id","qHr");
-    timed = false;
-    timeCount = 20;
-    tUpdate.textContent = timeCount + " seconds";
+    if (j<20){
 
-    $(tBlock).css("visibility", "visible");
-    qHead.textContent = "Question " + (j+1);
-    $(qContent).empty();
+        clearTimeout(qTimer);
+        clearInterval(countTimer);
+        $(qBody).attr("id","qBody");
+        $(qHr).attr("id","qHr");
+        timeCount = 20;
+        tUpdate.textContent = timeCount + " seconds";
 
-    question.classList.add("txtQuestion");
+        $(tBlock).css("visibility", "visible");
+        qHead.textContent = "Question " + (j+1);
+        $(qContent).empty();
 
-    question.textContent = questions[j].textVal;
+        question.classList.add("txtQuestion");
 
-    $(qContent).append(question);
-    var a = populateQuestion(questions[j].a,"1");
-    $(qContent).append(a);
-    var b = populateQuestion(questions[j].b,"2");
-    $(qContent).append(b);
-    var c = populateQuestion(questions[j].c,"3");
-    $(qContent).append(c);
-    var d = populateQuestion(questions[j].d,"4");
-    $(qContent).append(d);
+        question.textContent = questions[j].textVal;
 
-    $(btn).css("visibility", "visible");
-    $(btn).text("SUBMIT");
+        $(qContent).append(question);
+        var a = populateQuestion(questions[j].a,"1");
+        $(qContent).append(a);
+        var b = populateQuestion(questions[j].b,"2");
+        $(qContent).append(b);
+        var c = populateQuestion(questions[j].c,"3");
+        $(qContent).append(c);
+        var d = populateQuestion(questions[j].d,"4");
+        $(qContent).append(d);
 
-    qTimer = setTimeout(function(){timedOut(); }, 20000);
-    countTimer = setInterval(function(){ setTime(); }, 1000);
+        $(btn).css("visibility", "visible");
+        $(btn).text("SUBMIT");
 
-    console.log("Question number/J: " + (j+1));
+        qTimer = setTimeout(function(){timedOut(); }, 20000);
+        countTimer = setInterval(function(){ setTime(); }, 1000);
+    } 
+    else {
+
+        timeCount = 20;
+
+        clearTimeout(qTimer);
+        clearInterval(countTimer);
+        $(qBody).attr("id","qBody");
+        $(qHr).attr("id","qHr");
+        qHead.textContent = "Star Wars Trivia";
+        $(qContent).empty();
+        $(qContent).html("<p class='txtAnswer txtCenter'>GAME OVER.</p>"+
+                            "<p class='txtAnswer txtCenter'>Right: " + rightCount + "</p>" +
+                            "<p class='txtAnswer txtCenter'>Wrong: " + wrongCount + "</p>");
+
+        $(btn).css("visibility", "visible");
+        $(btn).text("RESTART");
+        j++;
+        console.log("Ending J Value: " + j);
+        restart = true;
+    };
+
+    console.log("Question number: " + (j+1));
+    console.log("J Value: " + j);
     console.log("Right answers: " + rightCount);
     console.log("Wrong answers: " + wrongCount);
 
@@ -315,7 +337,7 @@ var timeCount = 20;
 var rightCount = 0;
 var wrongCount = 0;
 var j = -1;
-var timed = false;
+var restart = false;
 
 //START/SUBMIT Button variables
 var btn = document.getElementsByClassName("btn");
@@ -341,7 +363,7 @@ $(".btn").click(function(){
     clearInterval(countTimer);
 
     //Avoids collecting answer when starting the game
-    if(j>-1){
+    if(j>-1 && restart != true){
         getAnswer();
     };
 
@@ -349,4 +371,13 @@ $(".btn").click(function(){
         j++;
         loadQuestions();
     };
+
+    if(restart == true){
+        rightCount = 0;
+        wrongCount = 0;
+        restart = false;
+        j = 0;
+        loadQuestions();
+        console.log("J value: " + j);
+    }
 });
