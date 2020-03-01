@@ -32,9 +32,9 @@ var questions = [
         textVal: "Who is Luke Skywalker's father?",
         right: "Anakin Skywalker",
         a: "Boba Fett",
-        b: "Darth Vader",
+        b: "Darth Sidious",
         c: "Anakin Skywalker",
-        d: "Steve Carell"
+        d: "Darth Maul"
     },
     {
         answered: false,
@@ -50,18 +50,18 @@ var questions = [
         textVal: "What is Han Solo's home planet?",
         right: "Corellia",
         a: "Corellia",
-        b: "Jedha",
+        b: "Kashyyyk",
         c: "Tatooine",
         d: "Coruscant"
     },
     {
         answered: false,
         textVal: "What happened to Luke Skywalker on Cloud City?",
-        right: "Lost his right hand",
-        a: "Lost his left hand",
-        b: "Lost his right hand",
+        right: "He lost his right hand",
+        a: "He lost his left hand",
+        b: "He lost his right hand",
         c: "He fell to his death",
-        d: "He got a new sweater, but it didn't fit so he returned it"
+        d: "He was frozen in carbonite"
     },
     {
         answered: false,
@@ -85,7 +85,7 @@ var questions = [
         answered: false,
         textVal: "Who did Han Solo kill in 'Solo: A Star Wars Story'?",
         right: "Tobias Beckett",
-        a: "Lando Calrissian",
+        a: "Lady Proxima",
         b: "Dryden Vos",
         c: "Tobias Beckett",
         d: "Darth Maul"
@@ -140,8 +140,8 @@ var questions = [
         textVal: "Who has scored the most Star Wars films?",
         right: "John Williams",
         a: "John Williams",
-        b: "Beethoven",
-        c: "Justin Bieber",
+        b: "Michael Giacchino",
+        c: "Charles Gerhardt",
         d: "George Lucas"
     },
     {
