@@ -411,6 +411,20 @@
             0px 0px 10px 2px red;
     }
 
+    .qCenter{
+        position: relative;
+        top:60px;
+        margin:auto;
+        padding: 15px;
+    }
+
+    .qCenterTimeout{
+        position: relative;
+        top:35px;
+        margin:auto;
+        padding: 15px;
+    }
+
     .qStart{
         font-weight: lighter;
         text-align: center;

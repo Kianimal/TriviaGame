@@ -230,6 +230,7 @@ function rightAnswer(){
     $(qBody).toggleClass("rBody");
     $(qHr).attr("id","rHr");
     $(qContent).empty();
+    $(qContent).toggleClass("qCenterTimeout",false);
     $(qContent).toggleClass("qCenter");
     $(qContent).html("<p class='txtQuestion txtCenter'>" + selectRandom(rightAnswerPrompt) + "</p>" +
                         "<p class='txtW_Timeout txtCenter'>YOU ANSWERED CORRECTLY!</p>");
@@ -249,8 +250,9 @@ function wrongAnswer(){
     $(qBody).toggleClass("w_tBody");
     $(qHr).attr("id","w_tHr");
     $(qContent).empty();
+    $(qContent).toggleClass("qCenterTimeout",false);
     $(qContent).toggleClass("qCenter");
-    $(qContent).prepend("<p class='txtQuestion txtCenter'>" + selectRandom(wrongAnswerPrompt) + "</p>" +
+    $(qContent).html("<p class='txtQuestion txtCenter'>" + selectRandom(wrongAnswerPrompt) + "</p>" +
                         "<p class='txtW_Timeout txtCenter'>Correct answer: " + qDisplay.right +"</p>");
 
     $(tBlock).css("visibility", "hidden");
@@ -270,6 +272,8 @@ function timedOut(){
     $(tBlock).css("visibility", "hidden");
     $(btn).css("visibility", "hidden");
     $(qContent).empty();
+    $(qContent).toggleClass("qCenterTimeout");
+    $(qContent).toggleClass("qCenter",false);
     $(qContent).html("<p class='txtW_Timeout txtCenter'>DO, OR DO NOT.</p>"+
                         "<p class='txtW_Timeout txtCenter'>THERE IS NO TRY.</p>"+
                     "<p class='txtW_Timeout txtCenter'>YOU DID NOT ANSWER IN TIME<p>" +
