@@ -1,6 +1,6 @@
 /* For mobile devices */
 
-@media only screen and (max-width: 1475px) {
+@media only screen and (max-width: 1473px) {
 
     .jumbotron{
         display: inline;
@@ -259,7 +259,7 @@
 
     #stars{
         height:100%;
-        width: 300%;
+        width: 200%;
         opacity:0.25;
         position: fixed;
         bottom:0;
@@ -270,7 +270,7 @@
 }
 
 /* For Desktop */
-@media only screen and (min-width: 1475px) {
+@media only screen and (min-width: 1474px) {
     
     .jumbotron{
         background: none !important;
@@ -315,7 +315,7 @@
     #logo{
         position: absolute;
         right: 32px;
-        top: 32px;
+        top: 45px;
         width:600px;
         z-index: -2;
     }
@@ -343,7 +343,7 @@
         margin: auto;
         margin-bottom: 50px;
         min-height:400px;
-        width:50%;
+        width:980px;
         border-radius: 10px;
         box-shadow: 
             1px 1px 10px greenyellow,
@@ -359,7 +359,7 @@
         margin: auto;
         margin-bottom: 50px;
         min-height:400px;
-        width:50%;
+        width:980px;
         border-radius: 10px;
         box-shadow: 
             1px 1px 10px red,
