@@ -1,233 +1,480 @@
-.jumbotron{
-    background: none !important;
-    border-radius: 0 !important;
-    padding-bottom: 20px !important;
+@media only screen and (min-width: 320px) {
+
+    .jumbotron{
+        display: inline;
+        margin: auto !important;
+        background: none !important;
+        border-radius: 0 !important;
+        padding-bottom: 20px !important;
+    }
+
+    .display-2{
+        color: white !important;
+        font-size: 55px !important;
+    }
+
+    .lead{
+        color: white !important;
+        font-weight: bold;
+    }
+
+    .rules{
+        width: 100%;
+        color: white !important;
+        font-weight: lighter;
+    }
+
+    #gold{
+        color:goldenrod;
+    }
+
+    #redItalic{
+        color: red;
+        font-style: italic;
+    }
+
+    .bold{
+        font-weight: bold;
+    }
+
+    #logo{
+        display: block;
+        margin: auto;
+        width:328px;
+        z-index: -2;
+    }
+
+    /* Default question border */
+    #qBody{
+        position: relative;
+        background: none;
+        margin: auto;
+        min-height:400px;
+        width:80%;
+        border-radius: 10px;
+        box-shadow: 
+            1px 1px 10px skyblue,
+            -1px -1px 10px skyblue,
+            inset 1px 1px 10px skyblue,
+            inset -1px -1px 10px skyblue;
+    }
+
+    /* Right answer border */
+    #rBody{
+        position: relative;
+        background: none;
+        margin: auto;
+        min-height:400px;
+        width:50%;
+        border-radius: 10px;
+        box-shadow: 
+            1px 1px 10px greenyellow,
+            -1px -1px 10px greenyellow,
+            inset 1px 1px 10px greenyellow,
+            inset -1px -1px 10px greenyellow;
+    }
+
+    /* Wrong answer/timeout border */
+    #w_tBody{
+        position: relative;
+        background: none;
+        margin: auto;
+        min-height:400px;
+        width:50%;
+        border-radius: 10px;
+        box-shadow: 
+            1px 1px 10px red,
+            -1px -1px 10px red,
+            inset 1px 1px 10px red,
+            inset -1px -1px 10px red;
+    }
+
+    #qTitle{
+        padding:15px;
+        padding-bottom: 0;
+        font-weight: lighter;
+        color: lightyellow;
+        font-size: 24px;
+        text-shadow: 
+            0px 0px 10px gold;
+        display: inline-block;
+        margin-bottom: 0 !important;
+    }
+
+    #qTimer{
+        position: absolute;
+        right: 0;
+        padding:15px;
+        padding-bottom: 0;
+        font-weight: lighter;
+        color: lightyellow;
+        font-size: 24px;
+        text-shadow: 
+            0px 0px 10px gold;
+        display: inline-block;
+        visibility: hidden;
+        margin-bottom: 0 !important;
+    }
+
+    #qHr{
+        height:0;
+        width:100%;
+        background-color: skyblue;
+        box-shadow: 
+            0px 0px 10px 2px skyblue;
+    }
+
+    #rHr{
+        height:0;
+        width:100%;
+        background-color: greenyellow;
+        box-shadow: 
+            0px 0px 10px 2px greenyellow;
+    }
+
+    #w_tHr{
+        height:0;
+        width:100%;
+        background-color: red;
+        box-shadow: 
+            0px 0px 10px 2px red;
+    }
+
+    .qStart{
+        position: relative;
+        top:35px;
+        font-weight: lighter;
+        text-align: center;
+        color: white;
+        font-size: 32px;
+        padding: 0px 5px;
+    }
+
+    .txtCenter{
+        text-align: center;
+    }
+
+    .txtQuestion{
+        color: white;
+        text-shadow: 
+            0px 0px 15px gold;
+        font-weight: lighter;
+        font-size: 24px;
+        padding-left: 15px;
+    }
+
+    .txtAnswer{
+        color: white;
+        text-shadow: 
+            0px 0px 3px white;
+        font-size: 18px;
+    }
+
+    .txtW_Timeout{
+        color: white;
+        text-shadow: 
+            0px 0px 3px gold;
+        font-size: 18px;
+    }
+
+    .btnAnswer{
+        margin-left: 15px;
+        display: inline;
+    }
+
+    #btnContainer{
+        width:100%;
+        position: absolute;
+        bottom: 50px;
+        text-align: center;
+    }
+
+    .btn{
+        display: inline-block;
+        width:150px;
+        color: lightyellow;
+        text-align:center;
+        text-shadow: 
+            0px 0px 10px white;
+        font-size: 24px;
+        border: 3px solid gold;
+        border-radius: 10px;
+        background-color: gold;
+        box-shadow: 
+            1px 1px 5px gold,
+            -1px -1px 5px gold,
+            inset 1px 1px 5px gold,
+            inset -1px -1px 5px gold;
+    }
+
+    .btn:hover{
+        cursor: pointer;
+        color: lightyellow;
+        text-shadow: 
+            0px 0px 30px black;
+        font-size: 30px;
+        border: 3px solid lightyellow;
+        border-radius: 10px;
+        background-color: gold;
+        box-shadow: 
+            1px 1px 5px lightyellow,
+            -1px -1px 5px lightyellow,
+            inset 1px 1px 5px lightyellow,
+            inset -1px -1px 5px lightyellow;
+    }
+
+    body{
+        height:100%;
+        background-image: linear-gradient(to right, #111, #111, #112, #113);
+        z-index: -2;
+    }
+
+    #stars{
+        height:100%;
+        width: 300%;
+        opacity:0.25;
+        position: fixed;
+        bottom:0;
+        right:0;
+        z-index: -1;
+    }
+
 }
 
-.display-2{
-    color: white !important;
-}
+/* For Desktop */
+@media only screen and (min-width: 1080px) {
+    
+    .jumbotron{
+        background: none !important;
+        border-radius: 0 !important;
+        padding-bottom: 20px !important;
+    }
 
-.lead{
-    color: white !important;
-    font-weight: bold;
-}
+    .display-2{
+        color: white !important;
+    }
 
-.rules{
-    width: 740px;
-    color: white !important;
-    font-weight: lighter;
-}
+    .lead{
+        color: white !important;
+        font-weight: bold;
+    }
 
-#gold{
-    color:goldenrod;
-}
+    .rules{
+        width: 740px;
+        color: white !important;
+        font-weight: lighter;
+    }
 
-#redItalic{
-    color: red;
-    font-style: italic;
-}
+    #gold{
+        color:goldenrod;
+    }
 
-.bold{
-    font-weight: bold;
-}
+    #redItalic{
+        color: red;
+        font-style: italic;
+    }
 
-#logo{
-    position: absolute;
-    right: 32px;
-    top: 64px;
-    width:600px;
-    z-index: -2;
-}
+    .bold{
+        font-weight: bold;
+    }
 
-/* Default question border */
-#qBody{
-    position: relative;
-    background: none;
-    margin: auto;
-    min-height:400px;
-    width:50%;
-    border-radius: 10px;
-    box-shadow: 
-        1px 1px 10px skyblue,
-        -1px -1px 10px skyblue,
-        inset 1px 1px 10px skyblue,
-        inset -1px -1px 10px skyblue;
-}
+    #logo{
+        position: absolute;
+        right: 32px;
+        top: 64px;
+        width:600px;
+        z-index: -2;
+    }
 
-/* Right answer border */
-#rBody{
-    position: relative;
-    background: none;
-    margin: auto;
-    min-height:400px;
-    width:50%;
-    border-radius: 10px;
-    box-shadow: 
-        1px 1px 10px greenyellow,
-        -1px -1px 10px greenyellow,
-        inset 1px 1px 10px greenyellow,
-        inset -1px -1px 10px greenyellow;
-}
+    /* Default question border */
+    #qBody{
+        position: relative;
+        background: none;
+        margin: auto;
+        min-height:400px;
+        width:50%;
+        border-radius: 10px;
+        box-shadow: 
+            1px 1px 10px skyblue,
+            -1px -1px 10px skyblue,
+            inset 1px 1px 10px skyblue,
+            inset -1px -1px 10px skyblue;
+    }
 
-/* Wrong answer/timeout border */
-#w_tBody{
-    position: relative;
-    background: none;
-    margin: auto;
-    min-height:400px;
-    width:50%;
-    border-radius: 10px;
-    box-shadow: 
-        1px 1px 10px red,
-        -1px -1px 10px red,
-        inset 1px 1px 10px red,
-        inset -1px -1px 10px red;
-}
+    /* Right answer border */
+    #rBody{
+        position: relative;
+        background: none;
+        margin: auto;
+        min-height:400px;
+        width:50%;
+        border-radius: 10px;
+        box-shadow: 
+            1px 1px 10px greenyellow,
+            -1px -1px 10px greenyellow,
+            inset 1px 1px 10px greenyellow,
+            inset -1px -1px 10px greenyellow;
+    }
 
-#qTitle{
-    padding:15px;
-    padding-bottom: 0;
-    font-weight: lighter;
-    color: lightyellow;
-    font-size: 24px;
-    text-shadow: 
-        0px 0px 10px gold;
-    display: inline-block;
-    margin-bottom: 0 !important;
-}
+    /* Wrong answer/timeout border */
+    #w_tBody{
+        position: relative;
+        background: none;
+        margin: auto;
+        min-height:400px;
+        width:50%;
+        border-radius: 10px;
+        box-shadow: 
+            1px 1px 10px red,
+            -1px -1px 10px red,
+            inset 1px 1px 10px red,
+            inset -1px -1px 10px red;
+    }
 
-#qTimer{
-    position: absolute;
-    right: 0;
-    padding:15px;
-    padding-bottom: 0;
-    font-weight: lighter;
-    color: lightyellow;
-    font-size: 24px;
-    text-shadow: 
-        0px 0px 10px gold;
-    display: inline-block;
-    visibility: hidden;
-    margin-bottom: 0 !important;
-}
+    #qTitle{
+        padding:15px;
+        padding-bottom: 0;
+        font-weight: lighter;
+        color: lightyellow;
+        font-size: 24px;
+        text-shadow: 
+            0px 0px 10px gold;
+        display: inline-block;
+        margin-bottom: 0 !important;
+    }
 
-#qHr{
-    height:0;
-    width:100%;
-    background-color: skyblue;
-    box-shadow: 
-        0px 0px 10px 2px skyblue;
-}
+    #qTimer{
+        position: absolute;
+        right: 0;
+        padding:15px;
+        padding-bottom: 0;
+        font-weight: lighter;
+        color: lightyellow;
+        font-size: 24px;
+        text-shadow: 
+            0px 0px 10px gold;
+        display: inline-block;
+        visibility: hidden;
+        margin-bottom: 0 !important;
+    }
 
-#rHr{
-    height:0;
-    width:100%;
-    background-color: greenyellow;
-    box-shadow: 
-        0px 0px 10px 2px greenyellow;
-}
+    #qHr{
+        height:0;
+        width:100%;
+        background-color: skyblue;
+        box-shadow: 
+            0px 0px 10px 2px skyblue;
+    }
 
-#w_tHr{
-    height:0;
-    width:100%;
-    background-color: red;
-    box-shadow: 
-        0px 0px 10px 2px red;
-}
+    #rHr{
+        height:0;
+        width:100%;
+        background-color: greenyellow;
+        box-shadow: 
+            0px 0px 10px 2px greenyellow;
+    }
 
-.qStart{
-    font-weight: lighter;
-    text-align: center;
-    color: white;
-    font-size: 80px;
-}
+    #w_tHr{
+        height:0;
+        width:100%;
+        background-color: red;
+        box-shadow: 
+            0px 0px 10px 2px red;
+    }
 
-.txtCenter{
-    text-align: center;
-}
+    .qStart{
+        font-weight: lighter;
+        text-align: center;
+        color: white;
+        font-size: 80px;
+    }
 
-.txtQuestion{
-    color: white;
-    text-shadow: 
-        0px 0px 15px gold;
-    font-weight: lighter;
-    font-size: 32px;
-    padding-left: 15px;
-}
+    .txtCenter{
+        text-align: center;
+    }
 
-.txtAnswer{
-    color: white;
-    text-shadow: 
-        0px 0px 3px white;
-    font-size: 20px;
-}
+    .txtQuestion{
+        color: white;
+        text-shadow: 
+            0px 0px 15px gold;
+        font-weight: lighter;
+        font-size: 32px;
+        padding-left: 15px;
+    }
 
-.txtW_Timeout{
-    color: white;
-    text-shadow: 
-        0px 0px 3px gold;
-    font-size: 20px;
-}
+    .txtAnswer{
+        color: white;
+        text-shadow: 
+            0px 0px 3px white;
+        font-size: 20px;
+    }
 
-.btnAnswer{
-    margin-left: 15px;
-    display: inline;
-}
+    .txtW_Timeout{
+        color: white;
+        text-shadow: 
+            0px 0px 3px gold;
+        font-size: 20px;
+    }
 
-#btnContainer{
-    width:100%;
-    position: absolute;
-    bottom: 50px;
-    text-align: center;
-}
+    .btnAnswer{
+        margin-left: 15px;
+        display: inline;
+    }
 
-.btn{
-    display: inline-block;
-    width:150px;
-    color: lightyellow;
-    text-align:center;
-    text-shadow: 
-        0px 0px 10px white;
-    font-size: 30px;
-    border: 3px solid gold;
-    border-radius: 10px;
-    background-color: gold;
-    box-shadow: 
-        1px 1px 5px gold,
-        -1px -1px 5px gold,
-        inset 1px 1px 5px gold,
-        inset -1px -1px 5px gold;
-}
+    #btnContainer{
+        width:100%;
+        position: absolute;
+        bottom: 50px;
+        text-align: center;
+    }
 
-.btn:hover{
-    cursor: pointer;
-    color: lightyellow;
-    text-shadow: 
-        0px 0px 30px black;
-    font-size: 30px;
-    border: 3px solid lightyellow;
-    border-radius: 10px;
-    background-color: gold;
-    box-shadow: 
-        1px 1px 5px lightyellow,
-        -1px -1px 5px lightyellow,
-        inset 1px 1px 5px lightyellow,
-        inset -1px -1px 5px lightyellow;
-}
+    .btn{
+        display: inline-block;
+        width:150px;
+        color: lightyellow;
+        text-align:center;
+        text-shadow: 
+            0px 0px 10px white;
+        font-size: 30px;
+        border: 3px solid gold;
+        border-radius: 10px;
+        background-color: gold;
+        box-shadow: 
+            1px 1px 5px gold,
+            -1px -1px 5px gold,
+            inset 1px 1px 5px gold,
+            inset -1px -1px 5px gold;
+    }
 
-body{
-    height:100%;
-    background-image: linear-gradient(to right, #111, #111, #112, #113);
-    z-index: -2;
-}
+    .btn:hover{
+        cursor: pointer;
+        color: lightyellow;
+        text-shadow: 
+            0px 0px 30px black;
+        font-size: 30px;
+        border: 3px solid lightyellow;
+        border-radius: 10px;
+        background-color: gold;
+        box-shadow: 
+            1px 1px 5px lightyellow,
+            -1px -1px 5px lightyellow,
+            inset 1px 1px 5px lightyellow,
+            inset -1px -1px 5px lightyellow;
+    }
 
-#stars{
-    height:100%;
-    width: 100%;
-    opacity:0.25;
-    position: fixed;
-    bottom:0;
-    right:0;
-    z-index: -1;
+    body{
+        height:100%;
+        background-image: linear-gradient(to right, #111, #111, #112, #113);
+        z-index: -2;
+    }
+
+    #stars{
+        height:100%;
+        width: 100%;
+        opacity:0.25;
+        position: fixed;
+        bottom:0;
+        right:0;
+        z-index: -1;
+    }
 }
