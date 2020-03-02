@@ -179,7 +179,106 @@ var questions = [
         b: "Humans",
         c: "Ewoks",
         d: "AT-STs"
-    }
+    },
+    {
+        answered: false,
+        textVal: "What was the full name of the podracer announcer in Episode I?",
+        right: "Fodesinbeed Annodue",
+        a: "Fode and Beed",
+        b: "Watto",
+        c: "Fodesenbeed",
+        d: "Fodesinbeed Annodue"
+    },
+    {
+        answered: false,
+        textVal: "On which other planet does podracing occur, according to Episode I?",
+        right: "Malastare",
+        a: "Tattooine",
+        b: "Cantonica",
+        c: "Malastare",
+        d: "Canto Bight"
+    },
+    {
+        answered: false,
+        textVal: "Who was the Viceroy of the Trade Federation in Episode I?",
+        right: "Nute Gunray",
+        a: "Neimoidia",
+        b: "Nute Gunray",
+        c: "Wat Tambor",
+        d: "Rune Haako"
+    },
+    {
+        answered: false,
+        textVal: "Who originally portrayed Obi-Wan Kenobi?",
+        right: "Alec Guiness",
+        a: "Ewan McGregor",
+        b: "Alec Guiness",
+        c: "James Arnold Taylor",
+        d: "Mark Hamill"
+    },
+    {
+        answered: false,
+        textVal: "On what planet did Jango Fett die?",
+        right: "Geonosis",
+        a: "Geonosis",
+        b: "Coruscant",
+        c: "Naboo",
+        d: "Kamino"
+    },
+    {
+        answered: false,
+        textVal: "Where was the Clone Army created?",
+        right: "Kamino",
+        a: "Geonosis",
+        b: "Coruscant",
+        c: "Kamino",
+        d: "Tatooine"
+    },
+    {
+        answered: false,
+        textVal: "Who was the scientist who created the Death Star's superlaser?",
+        right: "Galen Erso",
+        a: "Orson Krennic",
+        b: "Galen Erso",
+        c: "Galen Irso",
+        d: "Galen Urso"
+    },
+    {
+        answered: false,
+        textVal: "What was the name of the planet that Starkiller Base was built in?",
+        right: "Ilum",
+        a: "Ilum",
+        b: "Hoth",
+        c: "Alderaan",
+        d: "Crait"
+    },
+    {
+        answered: false,
+        textVal: "What was the system that Starkiller Base destroyed?",
+        right: "Hosnian System",
+        a: "Hosnian System",
+        b: "Hosnian Prime",
+        c: "Hosnia",
+        d: "Core System"
+    },
+    {
+        answered: false,
+        textVal: "Where did Snoke originate?",
+        right: "Exegol",
+        a: "The Outer Rim",
+        b: "Exegol",
+        c: "Ahch-To",
+        d: "Jakku"
+    },
+    {
+        answered: false,
+        textVal: "Where did Luke go into hiding?",
+        right: "Ahch-To",
+        a: "The Outer Rim",
+        b: "Ilum",
+        c: "Ahch-To",
+        d: "Tatooine"
+    },
 ];
 //Right answer splash page text array
 var rightAnswerPrompt = [
