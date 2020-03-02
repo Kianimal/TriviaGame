@@ -60,7 +60,7 @@
         background: none;
         margin: auto;
         margin-bottom: 25px;
-        min-height:400px;
+        min-height:300px;
         width:90%;
         border-radius: 10px;
         box-shadow: 
@@ -76,7 +76,7 @@
         background: none;
         margin: auto;
         margin-bottom: 25px;
-        min-height:400px;
+        min-height:300px;
         width:90%;
         border-radius: 10px;
         box-shadow: 
@@ -92,7 +92,7 @@
         background: none;
         margin: auto;
         margin-bottom: 25px;
-        min-height:400px;
+        min-height:300px;
         width:90%;
         border-radius: 10px;
         box-shadow: 
@@ -154,14 +154,22 @@
     }
 
     .qCenter{
-        margin:auto !important;
-        margin-top: 25% !important;
+        position: relative;
+        top:35px;
+        margin:auto;
         padding: 15px;
+    }
+
+    .qCenterTimeout{
+        position: relative;
+        top:5px;
+        margin:auto;
+        padding: 5px;
     }
 
     .qStart{
         position: relative;
-        top:75px;
+        top:15px;
         font-weight: lighter;
         text-align: center;
         color: white;
@@ -206,7 +214,7 @@
     #btnContainer{
         width:100%;
         position: absolute;
-        bottom: 50px;
+        bottom: 20px;
         text-align: center;
     }
 
