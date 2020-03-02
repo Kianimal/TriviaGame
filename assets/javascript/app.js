@@ -227,7 +227,7 @@ function rightAnswer(){
     clearTimeout(qTimer);
     clearInterval(countTimer);
     clearTimeout(splashTimer);
-    $(qBody).attr("id","rBody");
+    $(qBody).toggleClass("rBody");
     $(qHr).attr("id","rHr");
     $(qContent).empty();
     $(qContent).html("<p class='txtQuestion txtCenter'>" + selectRandom(rightAnswerPrompt) + "</p>" +
@@ -245,7 +245,7 @@ function wrongAnswer(){
     clearTimeout(qTimer);
     clearInterval(countTimer);
     clearTimeout(splashTimer);
-    $(qBody).attr("id","w_tBody");
+    $(qBody).toggleClass("w_tBody");
     $(qHr).attr("id","w_tHr");
     $(qContent).empty();
     $(qContent).prepend("<p class='txtQuestion txtCenter'>" + selectRandom(wrongAnswerPrompt) + "</p>" +
@@ -263,7 +263,7 @@ function timedOut(){
     j++;
 
     clearTimeout(splashTimer);
-    $(qBody).attr("id","w_tBody");
+    $(qBody).toggleClass("w_tBody");
     $(qHr).attr("id","w_tHr");
     $(tBlock).css("visibility", "hidden");
     $(btn).css("visibility", "hidden");
@@ -288,7 +288,9 @@ function loadQuestions(){
 
         clearTimeout(qTimer);
         clearInterval(countTimer);
-        $(qBody).attr("id","qBody");
+        $(qBody).toggleClass("qBody",true);
+        $(qBody).toggleClass("rBody",false);
+        $(qBody).toggleClass("w_tBody",false);
         $(qHr).attr("id","qHr");
         timeCount = 20;
         tUpdate.textContent = timeCount + " seconds";
@@ -330,7 +332,7 @@ function loadQuestions(){
 
         clearTimeout(qTimer);
         clearInterval(countTimer);
-        $(qBody).attr("id","qBody");
+        $(qBody).attr("class","qBody");
         $(qHr).attr("id","qHr");
         qHead.textContent = "Star Wars Trivia";
         $(qContent).empty();
@@ -386,7 +388,7 @@ var restart = false;
 //Button
 var btn = document.getElementsByClassName("btn");
 //Container for dynamic content. Used to change border color.
-var qBody = document.getElementById("qBody");
+var qBody = document.getElementsByClassName("qBody");
 //Horizontal row content, used to change border color
 var qHr = document.getElementById("qHr");
 //Dynamic text for questions/container label
