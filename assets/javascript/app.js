@@ -230,6 +230,7 @@ function rightAnswer(){
     $(qBody).toggleClass("rBody");
     $(qHr).attr("id","rHr");
     $(qContent).empty();
+    $(qContent).toggleClass("qCenter");
     $(qContent).html("<p class='txtQuestion txtCenter'>" + selectRandom(rightAnswerPrompt) + "</p>" +
                         "<p class='txtW_Timeout txtCenter'>YOU ANSWERED CORRECTLY!</p>");
 
@@ -248,6 +249,7 @@ function wrongAnswer(){
     $(qBody).toggleClass("w_tBody");
     $(qHr).attr("id","w_tHr");
     $(qContent).empty();
+    $(qContent).toggleClass("qCenter");
     $(qContent).prepend("<p class='txtQuestion txtCenter'>" + selectRandom(wrongAnswerPrompt) + "</p>" +
                         "<p class='txtW_Timeout txtCenter'>Correct answer: " + qDisplay.right +"</p>");
 
@@ -298,6 +300,7 @@ function loadQuestions(){
         $(tBlock).css("visibility", "visible");
         qHead.textContent = "Question " + (j+1);
         $(qContent).empty();
+        $(qContent).removeAttr("class");
 
         question.classList.add("txtQuestion");
 
@@ -328,7 +331,7 @@ function loadQuestions(){
     } 
     else {
 
-        timeCount = 20;
+        // timeCount = 20;
 
         clearTimeout(qTimer);
         clearInterval(countTimer);
@@ -336,6 +339,7 @@ function loadQuestions(){
         $(qHr).attr("id","qHr");
         qHead.textContent = "Star Wars Trivia";
         $(qContent).empty();
+        $(qContent).removeAttr("class");
         $(qContent).html("<p class='txtQuestion txtCenter'>MAY THE FORCE BE WITH YOU. ALWAYS.</p>"+
                             "<p class='txtAnswer txtCenter'>Right: " + rightCount + "</p>" +
                             "<p class='txtAnswer txtCenter'>Wrong: " + wrongCount + "</p>");
@@ -368,6 +372,7 @@ function restartGame(){
     for(i=0;i<questions.length;i++){
         questions[i].answered = false;
     };
+    timeCount = 20;
     rightCount = 0;
     wrongCount = 0;
     restart = false;
