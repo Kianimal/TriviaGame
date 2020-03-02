@@ -1,35 +1,37 @@
-@media only screen and (min-width: 320px) {
+/* For mobile devices */
+
+@media only screen and (max-width: 1475px) {
 
     .jumbotron{
         display: inline;
-        margin: auto !important;
+        margin: auto;
         background: none !important;
         border-radius: 0 !important;
-        padding-bottom: 20px !important;
+        padding-bottom: 20px;
     }
 
     .display-2{
-        text-align: center !important;
+        text-align: center;
         color: white !important;
-        font-size: 55px !important;
+        font-size: 55px;
         padding: 10px 10px 0px;
     }
 
     .lead{
-        text-align: center !important;
+        text-align: center;
         color: white !important;
         font-weight: bold;
         padding: 0px 10px 0px;
-        margin-bottom: 5px !important;
+        margin-bottom: 5px;
     }
 
     .rules{
-        text-align: center !important;
+        text-align: center;
         padding: 5px 10px 0px;
         width: 100%;
         color: white !important;
         font-weight: lighter;
-        margin-bottom: 2px !important;
+        margin-bottom: 2px;
     }
 
     #gold{
@@ -260,7 +262,7 @@
 }
 
 /* For Desktop */
-@media only screen and (min-width: 1080px) {
+@media only screen and (min-width: 1475px) {
     
     .jumbotron{
         background: none !important;
@@ -273,14 +275,20 @@
     }
 
     .lead{
+        text-align: initial !important;
         color: white !important;
         font-weight: bold;
+        padding: initial !important;
+        margin-bottom: 5px !important;
     }
 
     .rules{
-        width: 740px;
+        text-align: initial !important;
+        padding: initial !important;
+        width: 850px;
         color: white !important;
         font-weight: lighter;
+        margin-bottom: initial !important;
     }
 
     #gold{
@@ -305,12 +313,13 @@
     }
 
     /* Default question border */
-    #qBody{
+    .qBody{
         position: relative;
         background: none;
         margin: auto;
+        margin-bottom: 50px;
         min-height:400px;
-        width:50%;
+        width:980px;
         border-radius: 10px;
         box-shadow: 
             1px 1px 10px skyblue,
@@ -320,10 +329,11 @@
     }
 
     /* Right answer border */
-    #rBody{
+    .rBody{
         position: relative;
         background: none;
         margin: auto;
+        margin-bottom: 50px;
         min-height:400px;
         width:50%;
         border-radius: 10px;
@@ -335,10 +345,11 @@
     }
 
     /* Wrong answer/timeout border */
-    #w_tBody{
+    .w_tBody{
         position: relative;
         background: none;
         margin: auto;
+        margin-bottom: 50px;
         min-height:400px;
         width:50%;
         border-radius: 10px;
