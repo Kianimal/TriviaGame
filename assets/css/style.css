@@ -307,7 +307,7 @@
     #logo{
         position: absolute;
         right: 32px;
-        top: 64px;
+        top: 32px;
         width:600px;
         z-index: -2;
     }
